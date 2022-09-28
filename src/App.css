@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
   display: grid;
   /* grid-template-areas: none;
   "header header header" */
@@ -10,6 +9,7 @@
   background-color: #222;
   color: white;
   padding: 25px;
+  text-align: center;
 }
 
 .header > h1 {
@@ -33,4 +33,23 @@
 .footer > a > img {
   height: 35px;
   width: auto;
+}
+
+form {
+  background-color: white;
+  padding: 50px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
+}
+
+.input {
+  width: 100%;
+  margin-bottom: 20px;
+  height: 25px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 5px;
+  font-family: 'Inter', sans-serif;
 }
