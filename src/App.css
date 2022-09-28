@@ -53,3 +53,28 @@ form {
   padding: 5px;
   font-family: 'Inter', sans-serif;
 }
+
+legend {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+button {
+  width: 25%;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background-color: #222;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: center;
+}
