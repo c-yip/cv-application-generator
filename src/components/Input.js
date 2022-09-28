@@ -53,7 +53,7 @@ export default function Input(props) {
       />
       <br />
 
-      <label htmlFor="objective">Objective</label>
+      <legend>Objective</legend>
       <textarea rows="5" cols="50"
         value={props.data.objective}
         placeholder="Capture the attention of the employer with a “power pitch”. It’s the written equivalent of your verbal response to the “why should we hire you?” interview question. Include the type of position you are seeking and the start date (“Seeking a position in software development starting November 2022.”)"
