@@ -1,3 +1,36 @@
 .App {
   text-align: center;
+  display: grid;
+  /* grid-template-areas: none;
+  "header header header" */
+}
+
+.header {
+  /* grid-area: header; */
+  background-color: #222;
+  color: white;
+  padding: 25px;
+}
+
+.header > h1 {
+  border: 1px solid white;
+  margin: 0;
+  padding: 10px;
+}
+
+.footer {
+  /* grid-area: footer; */
+  background-color: #222;
+  color: white;
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;  
+}
+
+.footer > a > img {
+  height: 35px;
+  width: auto;
 }
