@@ -7,14 +7,17 @@ import Footer from './components/Footer';
 
 function App() {
   const [data, setData] = React.useState({
-    firstName: '', middle: '', lastName: '', phone: '', email: ''
+    firstName: '', middle: '', lastName: '', phone: '', email: '', 
+    objective: '', 
+    schoolName: '', schoolState: '', schoolCity: '', schoolDegree: '', schoolStartDate: '', schoolEndDate: '', schoolCurrent: false,
+    employerName: '',
   });
   
   function handleChange(event) {
-    const { name, value } = event.target;
+    const { name, value, type, checked } = event.target;
     setData(prevData => ({
       ...prevData,
-      [name]: value
+      [name]: type === "checkbox" ? checked : value
     }));
     console.log(data);
   }
