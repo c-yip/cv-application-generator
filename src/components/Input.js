@@ -232,6 +232,61 @@ export default function Input(props) {
         onChange={props.handleChange}
         value={props.data.skillDescription}
       />
+      <br />
+
+      <legend>Projects</legend>
+      <label htmlFor="projectTitle">Project Title</label>
+      <input
+        type="text"
+        placeholder="Title"
+        className="input"
+        name="projectTitle"
+        onChange={props.handleChange}
+        value={props.data.projectTitle}
+      />
+
+      <legend>Link to Live</legend>
+      <label htmlFor="projectLink">Link</label>
+      <input
+        type="text"
+        placeholder="Link"
+        className="input"
+        name="projectLink"
+        onChange={props.handleChange}
+        value={props.data.projectLink}
+      />
+
+      <legend>Link to Repo</legend>
+      <label htmlFor="projectRepo">Link</label>
+      <input
+        type="text"
+        placeholder="Link"
+        className="input"
+        name="projectRepo"
+        onChange={props.handleChange}
+        value={props.data.projectRepo}
+      />
+
+      <label htmlFor="projectDescription">Project Description</label>
+      <textarea
+        type="text"
+        placeholder="Project Description"
+        className="input"
+        name="projectDescription"
+        onChange={props.handleChange}
+        value={props.data.projectDescription}
+      />
+
+      <label htmlFor="projectDescription">Project Description Bullet</label>
+      <input
+        type="text"
+        placeholder="Description"
+        className="input"
+        name="projectDescriptionBullet"
+        onChange={props.handleChange}
+        value={props.data.projectDescriptionBullet}
+      />
+
       <button>Submit</button>
     </form>
   )

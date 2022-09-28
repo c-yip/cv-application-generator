@@ -12,6 +12,7 @@ function App() {
     schoolName: '', schoolState: '', schoolCity: '', schoolDegree: '', schoolStartDate: '', schoolEndDate: '', schoolCurrent: false,
     employerName: '', employerCity: '', employerState: '', jobTitle: '', jobBullet: '', jobStartDate: '', jobEndDate: '', jobCurrent: false,
     skillTitle: '', skillDescription: '',
+    projectTitle: '', projectLink: '', projectRepo: '', projectDescription: '', projectDescriptionBullet: '',
   });
   
   function handleChange(event) {
