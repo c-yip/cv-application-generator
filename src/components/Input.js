@@ -174,7 +174,7 @@ export default function Input(props) {
       />
 
       <label htmlFor="jobBullet">Job Bullet</label>
-      <input
+      <textarea rows="5" cols="50"
         type="text"
         placeholder="Start each bullet with an action verb and explain your contribution/accomplishment and the result/impact/outcome of your work. Quantify and qualify."
         className="input"
@@ -210,7 +210,28 @@ export default function Input(props) {
         onChange={props.handleChange}
         checked={props.data.jobCurrent}
       />
+      <br />
 
+      <legend>Skills/Licenses/Certifications</legend>
+      <label htmlFor="skillTitle">Skill Title</label>
+      <input 
+        type="text"
+        placeholder="Title"
+        className="input"
+        name="skillTitle"
+        onChange={props.handleChange}
+        value={props.data.skillTitle}
+      />
+
+      <label htmlFor="skillDescription">Skill Description</label>
+      <input 
+        type="text"
+        placeholder="Description"
+        className="input"
+        name="skillDescription"
+        onChange={props.handleChange}
+        value={props.data.skillDescription}
+      />
       <button>Submit</button>
     </form>
   )
