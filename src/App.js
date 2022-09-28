@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 
 function App() {
   const [data, setData] = React.useState({
-    firstName: '', middle: '', lastName: '', phone: '', email: '', 
+    firstName: '', middle: '', lastName: '', phone: '', email: '', location: '', linkedIn: '',
     objective: '', 
     schoolName: '', schoolState: '', schoolCity: '', schoolDegree: '', schoolStartDate: '', schoolEndDate: '', schoolCurrent: false,
     employerName: '', employerCity: '', employerState: '', jobTitle: '', jobBullet: '', jobStartDate: '', jobEndDate: '', jobCurrent: false,
@@ -31,7 +31,9 @@ function App() {
         handleChange={handleChange}
         data={data}
       />
-      <Preview />
+      <Preview 
+        data={data}
+      />
       <Footer />
     </div>
   );

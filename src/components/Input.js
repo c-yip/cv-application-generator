@@ -32,14 +32,14 @@ export default function Input(props) {
         value={props.data.lastName}
       />
 
-      <label htmlFor="phone">Phone Number</label>
+      <label htmlFor="location">City, State</label>
       <input 
-        type="tel"
-        placeholder="Phone Number"
+        type="text"
+        placeholder="City, State"
         className="input"
-        name="phone"
+        name="location"
         onChange={props.handleChange}
-        value={props.data.phone}
+        value={props.data.location}
       />
 
       <label htmlFor="email">Email Address</label>
@@ -50,6 +50,26 @@ export default function Input(props) {
         name="email"
         onChange={props.handleChange}
         value={props.data.email}
+      />
+
+      <label htmlFor="phone">Phone Number</label>
+      <input 
+        type="tel"
+        placeholder="Phone Number"
+        className="input"
+        name="phone"
+        onChange={props.handleChange}
+        value={props.data.phone}
+      />
+
+      <label htmlFor="linkedIn">LinkedIn</label>
+      <input 
+        type="text"
+        placeholder="LinkedIn Link"
+        className="input"
+        name="linkedIn"
+        onChange={props.handleChange}
+        value={props.data.linkedIn}
       />
       <br />
 
