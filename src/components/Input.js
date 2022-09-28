@@ -143,6 +143,74 @@ export default function Input(props) {
         value={props.data.employerName}
       />
 
+      <label htmlFor="employerCity">City</label>
+      <input
+        type="text"
+        placeholder="City"
+        className="input"
+        name="employerCity" 
+        onChange={props.handleChange}
+        value={props.data.employerCity}
+      />
+
+      <label htmlFor="employerState">State</label>
+      <input
+        type="text"
+        placeholder="State"
+        className="input"
+        name="employerState"
+        onChange={props.handleChange}
+        value={props.data.employerState}
+      />
+
+      <label htmlFor="jobTitle">Job Title</label>
+      <input
+        type="text"
+        placeholder="Job Title"
+        className="input"
+        name="jobTitle"
+        onChange={props.handleChange}
+        value={props.data.jobTitle}
+      />
+
+      <label htmlFor="jobBullet">Job Bullet</label>
+      <input
+        type="text"
+        placeholder="Start each bullet with an action verb and explain your contribution/accomplishment and the result/impact/outcome of your work. Quantify and qualify."
+        className="input"
+        name="jobBullet"
+        onChange={props.handleChange}
+        value={props.data.jobBullet1}
+      />
+
+      <label htmlFor="jobStartDate">Start Date</label>
+      <input
+        type="month"
+        placeholder="Start Date"
+        className="input"
+        name="jobStartDate"
+        onChange={props.handleChange}
+        value={props.data.jobStartDate}
+      />
+
+      <label htmlFor="jobEndDate">End Date</label>
+      <input
+        type="month"
+        placeholder="End Date"
+        className="input"
+        name="jobEndDate"
+        onChange={props.handleChange}
+        value={props.data.jobEndDate}
+      />
+
+      <label htmlFor="jobCurrent">Still working here</label>
+      <input
+        type="checkbox"
+        name="jobCurrent"
+        onChange={props.handleChange}
+        checked={props.data.jobCurrent}
+      />
+
       <button>Submit</button>
     </form>
   )

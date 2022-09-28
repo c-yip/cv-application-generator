@@ -10,7 +10,7 @@ function App() {
     firstName: '', middle: '', lastName: '', phone: '', email: '', 
     objective: '', 
     schoolName: '', schoolState: '', schoolCity: '', schoolDegree: '', schoolStartDate: '', schoolEndDate: '', schoolCurrent: false,
-    employerName: '',
+    employerName: '', employerCity: '', employerState: '', jobTitle: '', jobBullet: '', jobStartDate: '', jobEndDate: '', jobCurrent: false,
   });
   
   function handleChange(event) {
