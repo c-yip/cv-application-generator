@@ -1,4 +1,29 @@
-export default function Input(props) {
+import React from 'react';
+import Schools from './Schools';
+
+export default function Input(props) {  
+  const [schoolArray, setSchoolArray] = React.useState([
+    <Schools 
+      key={0}
+      data={props.data}
+      handleChange={props.handleChange}
+    />,
+  ]);
+
+  function addSchool() {
+    setSchoolArray(prevSchoolArray => [...prevSchoolArray, <Schools />]);
+    console.log(schoolArray);
+    console.log(schoolElements);
+  }
+
+  const schoolElements = schoolArray.map((school, index) => (
+    <Schools 
+      key={index} 
+      data={props.data} 
+      handleChange={props.handleChange} 
+    />
+  ));
+
   return (
     <form>
       <legend>Personal Information</legend>
@@ -83,73 +108,9 @@ export default function Input(props) {
       <br />
 
       <legend>Education</legend>
-      <label htmlFor="schoolName">School Name</label>
-      <input
-        type="text"
-        placeholder="School Name"
-        className="input"
-        name="schoolName"
-        onChange={props.handleChange}
-        value={props.data.schoolName}
-      />
+      {schoolElements}
 
-      <label htmlFor="schoolCity">City</label>
-      <input 
-        type="text"
-        placeholder="City"
-        className="input"
-        name="schoolCity"
-        onChange={props.handleChange}
-        value={props.data.schoolCity}
-      />
-
-      <label htmlFor="schoolState">State</label>
-      <input
-        type="text"
-        placeholder="State"
-        className="input"
-        name="schoolState"
-        onChange={props.handleChange}
-        value={props.data.schoolState}
-      />
-
-      <label htmlFor="schoolDegree">Degree</label>
-      <input
-        type="text"
-        placeholder="Degree"
-        className="input"
-        name="schoolDegree"
-        onChange={props.handleChange}
-        value={props.data.schoolDegree}
-      />
-
-      <label htmlFor="schoolStartDate">Start Date</label>
-      <input 
-        type="month"
-        placeholder="Start Date"
-        className="input"
-        name="schoolStartDate"
-        onChange={props.handleChange}
-        value={props.data.schoolStartDate}
-      />
-
-      <label htmlFor="schoolEndDate">End Date</label>
-      <input 
-        type="month"
-        placeholder="End Date"
-        className="input"
-        name="schoolEndDate"
-        onChange={props.handleChange}
-        value={props.data.schoolEndDate}
-      />
-
-      <label htmlFor="schoolCurrent">Still attending</label>
-      <input 
-        type="checkbox"
-        name="schoolCurrent"
-        onChange={props.handleChange}
-        checked={props.data.schoolCurrent}
-      />
+      <button type="button" onClick={addSchool}>Add School</button>
       <br />
 
       <legend>Experience</legend>
