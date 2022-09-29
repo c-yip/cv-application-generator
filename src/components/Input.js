@@ -265,8 +265,7 @@ export default function Input(props) {
         value={props.data.projectTitle}
       />
 
-      <legend>Link to Live</legend>
-      <label htmlFor="projectLink">Link</label>
+      <label htmlFor="projectLink">Live Link</label>
       <input
         type="text"
         placeholder="Link"
@@ -276,8 +275,7 @@ export default function Input(props) {
         value={props.data.projectLink}
       />
 
-      <legend>Link to Repo</legend>
-      <label htmlFor="projectRepo">Link</label>
+      <label htmlFor="projectRepo">Repo Link</label>
       <input
         type="text"
         placeholder="Link"

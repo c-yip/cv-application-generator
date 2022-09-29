@@ -28,6 +28,43 @@ export default function Preview(props) {
         <h2 className="objective-title">Objective</h2>
         <p className="objective-info">{props.data.objective}</p>
       </div>
+
+      <div className="projects">
+        <h2 className="projects-title">Projects</h2>
+        <p className="projects-name">{props.data.projectTitle}</p>
+        <p className="project-link">{props.data.projectLink}</p>
+        <p className="project-repo">{props.data.projectRepo}</p>
+        <p className="project-description">{props.data.projectDescription}</p>
+        <p className="project-description-bullet">{props.data.projectDescriptionBullet}</p>
+      </div>
+
+      <div className="experience">
+        <h2 className="experience-title">Experience</h2>
+        <p className="employer-name">{props.data.employerName}</p>
+        <p className="employer-city">{props.data.employerCity}</p>
+        <p className="employer-state">{props.data.employerState}</p>
+        <p className="job-title">{props.data.jobTitle}</p>
+        <p className="job-bullet">{props.data.jobBullet}</p>
+        <p className="job-start-date">{props.data.jobStartDate}</p>
+        <p className="job-end-date">{props.data.jobEndDate}</p>
+      </div>
+
+      <div className="education">
+        <h2 className="education-title">Education</h2>
+        <p className="school-name">{props.data.schoolName}</p>
+        <p className="school-city">{props.data.schoolCity}</p>
+        <p className="school-state">{props.data.schoolState}</p>
+        <p className="school-degree">{props.data.schoolDegree}</p>
+        <p className="school-start-date">{props.data.schoolStartDate}</p>
+        <p className="school-end-date">{props.data.schoolEndDate}</p>
+      </div>
+
+      <div className="skills">
+        <h2 className="skills-title">Skills</h2>
+        <p className="skill-name">{props.data.skillTitle}</p>
+        <p className="skill-description">{props.data.skillDescription}</p>
+      </div>
+
     </div>
   )
 }
