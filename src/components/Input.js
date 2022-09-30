@@ -2,25 +2,37 @@ import React from 'react';
 import Schools from './Schools';
 
 export default function Input(props) {  
-  const [schoolArray, setSchoolArray] = React.useState([
-    <Schools 
-      key={0}
-      data={props.data}
-      handleChange={props.handleChange}
-    />,
-  ]);
+  // school data and event handler
+  const [schoolData, setSchoolData] = React.useState([]);
+
+  function handleSchoolChange(event) {
+    const { name, value, type, checked } = event.target;
+    setSchoolData(prevData => ({
+      ...prevData,
+      [name]: type === "checkbox" ? checked : value
+    }));
+    console.log('school data', schoolData);
+    console.log('school array', schoolArray)  
+  }
+  
+  // school array and event handler
+  const [schoolArray, setSchoolArray] = React.useState([]);
 
   function addSchool() {
     setSchoolArray(prevSchoolArray => [...prevSchoolArray, <Schools />]);
     console.log(schoolArray);
     console.log(schoolElements);
+    // add schoolData object
+    setSchoolData(prevData => [...prevData, {
+      schoolName: '', schoolState: '', schoolCity: '', schoolDegree: '', schoolStartDate: '', schoolEndDate: '', schoolCurrent: false,
+    }]);
   }
 
   const schoolElements = schoolArray.map((school, index) => (
     <Schools 
       key={index} 
-      data={props.data} 
-      handleChange={props.handleChange} 
+      schoolData={schoolData} 
+      handleSchoolChange={handleSchoolChange} 
     />
   ));
 

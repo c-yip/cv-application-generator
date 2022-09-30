@@ -7,8 +7,8 @@ export default function Schools(props) {
         placeholder="School Name"
         className="input"
         name="schoolName"
-        onChange={props.handleChange}
-        value={props.data.schoolName}
+        onChange={props.handleSchoolChange}
+        value={props.schoolData.schoolName}
       />
 
       <label htmlFor="schoolCity">City</label>
@@ -17,8 +17,8 @@ export default function Schools(props) {
         placeholder="City"
         className="input"
         name="schoolCity"
-        onChange={props.handleChange}
-        value={props.data.schoolCity}
+        onChange={props.handleSchoolChange}
+        value={props.schoolData.schoolCity}
       />
 
       <label htmlFor="schoolState">State</label>
@@ -27,8 +27,8 @@ export default function Schools(props) {
         placeholder="State"
         className="input"
         name="schoolState"
-        onChange={props.handleChange}
-        value={props.data.schoolState}
+        onChange={props.handleSchoolChange}
+        value={props.schoolData.schoolState}
       />
 
       <label htmlFor="schoolDegree">Degree</label>
@@ -37,8 +37,8 @@ export default function Schools(props) {
         placeholder="Degree"
         className="input"
         name="schoolDegree"
-        onChange={props.handleChange}
-        value={props.data.schoolDegree}
+        onChange={props.handleSchoolChange}
+        value={props.schoolData.schoolDegree}
       />
 
       <label htmlFor="schoolStartDate">Start Date</label>
@@ -47,8 +47,8 @@ export default function Schools(props) {
         placeholder="Start Date"
         className="input"
         name="schoolStartDate"
-        onChange={props.handleChange}
-        value={props.data.schoolStartDate}
+        onChange={props.handleSchoolChange}
+        value={props.schoolData.schoolStartDate}
       />
 
       <label htmlFor="schoolEndDate">End Date</label>
@@ -57,16 +57,16 @@ export default function Schools(props) {
         placeholder="End Date"
         className="input"
         name="schoolEndDate"
-        onChange={props.handleChange}
-        value={props.data.schoolEndDate}
+        onChange={props.handleSchoolChange}
+        value={props.schoolData.schoolEndDate}
       />
 
       <label htmlFor="schoolCurrent">Still attending</label>
       <input 
         type="checkbox"
         name="schoolCurrent"
-        onChange={props.handleChange}
-        checked={props.data.schoolCurrent}
+        onChange={props.handleSchoolChange}
+        checked={props.schoolData.schoolCurrent}
       />
     </div>
   );
