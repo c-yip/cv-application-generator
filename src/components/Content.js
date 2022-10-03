@@ -1,8 +1,10 @@
 import React from 'react';
 import Schools from './Schools';
 import Preview from './Preview';
+import Projects from './Projects';
 
 export default function Input(props) {  
+  // education
   const [schoolData, setSchoolData] = React.useState([
     {
       schoolName: '', schoolState: '', schoolCity: '', schoolDegree: '', schoolStartDate: '', schoolEndDate: '', schoolCurrent: false,
@@ -27,6 +29,34 @@ export default function Input(props) {
     // adds a new school object to the schoolData array
     setSchoolData(prevData => [...prevData, {
       schoolName: '', schoolState: '', schoolCity: '', schoolDegree: '', schoolStartDate: '', schoolEndDate: '', schoolCurrent: false,
+    }]);
+  }
+
+  // projects
+  const [projectData, setProjectData] = React.useState([
+    {
+      projectTitle: '', projectLink: '', projectRepo: '', projectDescription: '', projectDescriptionBullet: '',
+    }
+  ]);
+
+  function handleProjectChange(event, indexToChange) {
+    const { name, value, type, checked } = event.target;
+    setProjectData(prevData => {
+      // iterates through projectData array and returns a new array with the updated value
+      // if the index matches the indexToChange, it updates the value
+      // otherwise, it returns the previous value
+      return prevData.map((project, index) => index === indexToChange ? {
+        ...prevData[index],
+        [name]: type === 'checkbox' ? checked : value
+      } : project);
+    });
+    console.log(projectData);
+  }
+
+  function addProject() {
+    // adds a new project object to the projectData array
+    setProjectData(prevData => [...prevData, {
+      projectTitle: '', projectLink: '', projectRepo: '', projectDescription: '', projectDescriptionBullet: '',
     }]);
   }
 
@@ -118,7 +148,7 @@ export default function Input(props) {
         <legend>Education</legend>
         {/* iterates through schoolData, returns Schools component, handleChange takes in event param and index of schoolData */}
         {schoolData.map((school, index) => (<Schools key={index} schoolData={school} handleSchoolChange={(e) => handleSchoolChange(e, index)} />))}
-        <button type="button" onClick={addSchool}>Add School</button>
+        <button type="button" onClick={addSchool}>+ Add School</button>
         <br />
 
         <legend>Experience</legend>
@@ -224,61 +254,18 @@ export default function Input(props) {
         <br />
 
         <legend>Projects</legend>
-        <label htmlFor="projectTitle">Project Title</label>
-        <input
-          type="text"
-          placeholder="Title"
-          className="input"
-          name="projectTitle"
-          onChange={props.handleChange}
-          value={props.data.projectTitle}
-        />
-
-        <label htmlFor="projectLink">Live Link</label>
-        <input
-          type="text"
-          placeholder="Link"
-          className="input"
-          name="projectLink"
-          onChange={props.handleChange}
-          value={props.data.projectLink}
-        />
-
-        <label htmlFor="projectRepo">Repo Link</label>
-        <input
-          type="text"
-          placeholder="Link"
-          className="input"
-          name="projectRepo"
-          onChange={props.handleChange}
-          value={props.data.projectRepo}
-        />
-
-        <label htmlFor="projectDescription">Project Description</label>
-        <textarea
-          type="text"
-          placeholder="Project Description"
-          className="input"
-          name="projectDescription"
-          onChange={props.handleChange}
-          value={props.data.projectDescription}
-        />
-
-        <label htmlFor="projectDescription">Project Description Bullet</label>
-        <input
-          type="text"
-          placeholder="Description"
-          className="input"
-          name="projectDescriptionBullet"
-          onChange={props.handleChange}
-          value={props.data.projectDescriptionBullet}
-        />
+        {projectData.map((project, index) => (<Projects key={index} projectData={project} handleProjectChange={(e) => handleProjectChange(e, index)} />))}
+        <button type="button" onClick={addProject}>+ Add Project</button> 
 
         <button>Submit</button>
       </form>
       
       <div className='preview'>
-        <Preview data={props.data} schoolData={schoolData}/>
+        <Preview 
+          data={props.data} 
+          schoolData={schoolData}
+          projectData={projectData}
+        />
       </div>
     </div>
   )

@@ -1,4 +1,5 @@
 import PreviewEducation from "./PreviewEducation";
+import PreviewProjects from "./PreviewProjects";
 
 export default function Preview(props) {
   // converts numbers to phone number format
@@ -32,12 +33,7 @@ export default function Preview(props) {
       </div>
 
       <div className="projects">
-        <h2 className="projects-title">Projects</h2>
-        <p className="projects-name">{props.data.projectTitle}</p>
-        <p className="project-link">{props.data.projectLink}</p>
-        <p className="project-repo">{props.data.projectRepo}</p>
-        <p className="project-description">{props.data.projectDescription}</p>
-        <p className="project-description-bullet">{props.data.projectDescriptionBullet}</p>
+        { props.projectData.map((project, index) => <PreviewProjects key={index} projectData={project} />) }
       </div>
 
       <div className="experience">
