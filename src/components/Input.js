@@ -2,39 +2,27 @@ import React from 'react';
 import Schools from './Schools';
 
 export default function Input(props) {  
-  // school data and event handler
-  const [schoolData, setSchoolData] = React.useState([]);
+  const [schoolData, setSchoolData] = React.useState([
+    {
+      schoolName: '', schoolState: '', schoolCity: '', schoolDegree: '', schoolStartDate: '', schoolEndDate: '', schoolCurrent: false,
+    }
+  ]);
 
-  function handleSchoolChange(event) {
+  function handleSchoolChange(event, indexToChange) {
     const { name, value, type, checked } = event.target;
-    setSchoolData(prevData => ({
-      ...prevData,
-      [name]: type === "checkbox" ? checked : value
-    }));
-    console.log('school data', schoolData);
-    console.log('school array', schoolArray)  
+    setSchoolData(prevData => {
+      return prevData.map((school, index) => index === indexToChange ? {
+        ...prevData[index],
+        [name]: type === 'checkbox' ? checked : value
+      } : school);
+    });
   }
-  
-  // school array and event handler
-  const [schoolArray, setSchoolArray] = React.useState([]);
 
   function addSchool() {
-    setSchoolArray(prevSchoolArray => [...prevSchoolArray, <Schools />]);
-    console.log(schoolArray);
-    console.log(schoolElements);
-    // add schoolData object
     setSchoolData(prevData => [...prevData, {
       schoolName: '', schoolState: '', schoolCity: '', schoolDegree: '', schoolStartDate: '', schoolEndDate: '', schoolCurrent: false,
     }]);
   }
-
-  const schoolElements = schoolArray.map((school, index) => (
-    <Schools 
-      key={index} 
-      schoolData={schoolData} 
-      handleSchoolChange={handleSchoolChange} 
-    />
-  ));
 
   return (
     <form>
@@ -120,8 +108,7 @@ export default function Input(props) {
       <br />
 
       <legend>Education</legend>
-      {schoolElements}
-
+      {schoolData.map((school, index) => (<Schools key={index} schoolData={school} handleSchoolChange={(e) => handleSchoolChange(e, index)} />))}
       <button type="button" onClick={addSchool}>Add School</button>
       <br />
 
