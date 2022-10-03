@@ -1,8 +1,7 @@
 import './App.css';
 import React from 'react';
 import Header from './components/Header';
-import Input from './components/Input';
-import Preview from './components/Preview';
+import Content from './components/Content';
 import Footer from './components/Footer';
 
 function App() {
@@ -26,11 +25,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Input 
+      <Content 
         handleChange={handleChange}
-        data={data}
-      />
-      <Preview 
         data={data}
       />
       <Footer />

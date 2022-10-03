@@ -1,3 +1,5 @@
+import PreviewEducation from "./PreviewEducation";
+
 export default function Preview(props) {
   // converts numbers to phone number format
   function formatPhoneNumber(phoneNumberString) {
@@ -48,16 +50,9 @@ export default function Preview(props) {
         <p className="job-start-date">{props.data.jobStartDate}</p>
         <p className="job-end-date">{props.data.jobEndDate}</p>
       </div>
-
-      <div className="education">
-        <h2 className="education-title">Education</h2>
-        <p className="school-name">{props.data.schoolName}</p>
-        <p className="school-city">{props.data.schoolCity}</p>
-        <p className="school-state">{props.data.schoolState}</p>
-        <p className="school-degree">{props.data.schoolDegree}</p>
-        <p className="school-start-date">{props.data.schoolStartDate}</p>
-        <p className="school-end-date">{props.data.schoolEndDate}</p>
-      </div>
+      
+      <h2 className="education-title">Education</h2>
+      { props.schoolData.map((school, index) => <PreviewEducation key={index} schoolData={props.schoolData}/>) } 
 
       <div className="skills">
         <h2 className="skills-title">Skills</h2>
