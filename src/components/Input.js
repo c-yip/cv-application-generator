@@ -11,6 +11,9 @@ export default function Input(props) {
   function handleSchoolChange(event, indexToChange) {
     const { name, value, type, checked } = event.target;
     setSchoolData(prevData => {
+      // iterates through schoolData array and returns a new array with the updated value
+      // if the index matches the indexToChange, it updates the value
+      // otherwise, it returns the previous value
       return prevData.map((school, index) => index === indexToChange ? {
         ...prevData[index],
         [name]: type === 'checkbox' ? checked : value
@@ -19,6 +22,7 @@ export default function Input(props) {
   }
 
   function addSchool() {
+    // adds a new school object to the schoolData array
     setSchoolData(prevData => [...prevData, {
       schoolName: '', schoolState: '', schoolCity: '', schoolDegree: '', schoolStartDate: '', schoolEndDate: '', schoolCurrent: false,
     }]);
@@ -108,6 +112,7 @@ export default function Input(props) {
       <br />
 
       <legend>Education</legend>
+      {/* iterates through schoolData, returns Schools component, handleChange takes in event param and index of schoolData */}
       {schoolData.map((school, index) => (<Schools key={index} schoolData={school} handleSchoolChange={(e) => handleSchoolChange(e, index)} />))}
       <button type="button" onClick={addSchool}>Add School</button>
       <br />
