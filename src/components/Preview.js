@@ -52,7 +52,7 @@ export default function Preview(props) {
       </div>
       
       <h2 className="education-title">Education</h2>
-      { props.schoolData.map((school, index) => <PreviewEducation key={index} schoolData={props.schoolData}/>) } 
+      { props.schoolData.map((school, index) => <PreviewEducation key={index} schoolData={school}/>) } 
 
       <div className="skills">
         <h2 className="skills-title">Skills</h2>
