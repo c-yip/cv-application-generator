@@ -1,11 +1,14 @@
 .App {
   display: grid;
-  /* grid-template-areas: none;
-  "header header header" */
+  grid-template-areas: 
+  "header header header"
+  "content content content"
+  "footer footer footer"
+  ;
 }
 
 .header {
-  /* grid-area: header; */
+  grid-area: header;
   background-color: #222;
   color: white;
   padding: 25px;
@@ -19,7 +22,7 @@
 }
 
 .footer {
-  /* grid-area: footer; */
+  grid-area: footer;
   background-color: #222;
   color: white;
   padding: 25px;
@@ -35,10 +38,20 @@
   width: auto;
 }
 
+.content {
+  grid-area: content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: grey;
+}
+
+.form {
+  
+}
+
 form {
   background-color: white;
   padding: 50px;
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
   box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
@@ -78,4 +91,29 @@ button {
   font-weight: 600;
   cursor: pointer;
   align-self: center;
+}
+
+.preview {
+  background-color: white;
+  padding: 50px;
+}
+
+.resume-page {
+  background-color: white;
+  padding: 50px;
+  box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
+  position: fixed;
+  top: 191px;
+}
+
+.personal-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.contact {
+  display: flex;
+  gap: 10px;
 }

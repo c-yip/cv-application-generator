@@ -31,9 +31,9 @@ export default function Input(props) {
   }
 
   return (
-    <div>
+    <div className='content'>
 
-      <form>
+      <form className='form'>
         <legend>Personal Information</legend>
         <label htmlFor="firstName">First Name</label>
         <input 
@@ -277,8 +277,9 @@ export default function Input(props) {
         <button>Submit</button>
       </form>
       
-      <Preview data={props.data} schoolData={schoolData}/>
-    
+      <div className='preview'>
+        <Preview data={props.data} schoolData={schoolData}/>
+      </div>
     </div>
   )
 }

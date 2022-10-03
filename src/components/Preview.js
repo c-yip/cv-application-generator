@@ -12,9 +12,9 @@ export default function Preview(props) {
   }
   
   return (
-    <div className="preview">
+    <div className="resume-page">
       
-      <div className="peronal-info">
+      <div className="personal-info">
         <div className="name">
           <h1>{props.data.firstName} {props.data.middle} {props.data.lastName}</h1>
         </div>
