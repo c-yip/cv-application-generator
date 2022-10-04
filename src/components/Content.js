@@ -1,7 +1,7 @@
 import React from 'react';
-import Schools from './Schools';
-import Preview from './Preview';
-import Projects from './Projects';
+import Schools from './content-children/Schools';
+import Preview from './content-children/Preview';
+import Projects from './content-children/Projects';
 
 export default function Input(props) {  
   // education
@@ -35,7 +35,7 @@ export default function Input(props) {
   // projects
   const [projectData, setProjectData] = React.useState([
     {
-      projectTitle: '', projectLink: '', projectRepo: '', projectDescription: '', projectDescriptionBullet: '',
+      projectTitle: '', projectLink: '', projectRepo: '', projectDescription: '', 
     }
   ]);
 
