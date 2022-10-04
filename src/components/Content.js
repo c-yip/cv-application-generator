@@ -2,6 +2,7 @@ import React from 'react';
 import Schools from './content-children/Schools';
 import Preview from './content-children/Preview';
 import Projects from './content-children/Projects';
+import Experience from './content-children/Experience';
 
 export default function Input(props) {  
   // education
@@ -42,9 +43,6 @@ export default function Input(props) {
   function handleProjectChange(event, indexToChange) {
     const { name, value, type, checked } = event.target;
     setProjectData(prevData => {
-      // iterates through projectData array and returns a new array with the updated value
-      // if the index matches the indexToChange, it updates the value
-      // otherwise, it returns the previous value
       return prevData.map((project, index) => index === indexToChange ? {
         ...prevData[index],
         [name]: type === 'checkbox' ? checked : value
@@ -54,9 +52,32 @@ export default function Input(props) {
   }
 
   function addProject() {
-    // adds a new project object to the projectData array
     setProjectData(prevData => [...prevData, {
       projectTitle: '', projectLink: '', projectRepo: '', projectDescription: '', projectDescriptionBullet: '',
+    }]);
+  }
+
+  // experience
+  const [experienceData, setExperienceData] = React.useState([
+    {
+      experienceTitle: '', experienceCompany: '', experienceStartDate: '', experienceEndDate: '', experienceCurrent: false, experienceDescription: '',
+    }
+  ]);
+
+  function handleExperienceChange(event, indexToChange) {
+    const { name, value, type, checked } = event.target;
+    setExperienceData(prevData => {
+      return prevData.map((experience, index) => index === indexToChange ? {
+        ...prevData[index],
+        [name]: type === 'checkbox' ? checked : value
+      } : experience);
+    });
+    console.log(experienceData);
+  }
+
+  function addExperience() {
+    setExperienceData(prevData => [...prevData, {
+      experienceTitle: '', experienceCompany: '', experienceStartDate: '', experienceEndDate: '', experienceCurrent: false, experienceDescription: '',
     }]);
   }
 
@@ -152,83 +173,8 @@ export default function Input(props) {
         <br />
 
         <legend>Experience</legend>
-        <label htmlFor="employerName">Employer Name</label>
-        <input
-          type="text"
-          placeholder="Employer Name"
-          className="input"
-          name="employerName"
-          onChange={props.handleChange}
-          value={props.data.employerName}
-        />
-
-        <label htmlFor="employerCity">City</label>
-        <input
-          type="text"
-          placeholder="City"
-          className="input"
-          name="employerCity" 
-          onChange={props.handleChange}
-          value={props.data.employerCity}
-        />
-
-        <label htmlFor="employerState">State</label>
-        <input
-          type="text"
-          placeholder="State"
-          className="input"
-          name="employerState"
-          onChange={props.handleChange}
-          value={props.data.employerState}
-        />
-
-        <label htmlFor="jobTitle">Job Title</label>
-        <input
-          type="text"
-          placeholder="Job Title"
-          className="input"
-          name="jobTitle"
-          onChange={props.handleChange}
-          value={props.data.jobTitle}
-        />
-
-        <label htmlFor="jobBullet">Job Bullet</label>
-        <textarea rows="5" cols="50"
-          type="text"
-          placeholder="Start each bullet with an action verb and explain your contribution/accomplishment and the result/impact/outcome of your work. Quantify and qualify."
-          className="input"
-          name="jobBullet"
-          onChange={props.handleChange}
-          value={props.data.jobBullet1}
-        />
-
-        <label htmlFor="jobStartDate">Start Date</label>
-        <input
-          type="month"
-          placeholder="Start Date"
-          className="input"
-          name="jobStartDate"
-          onChange={props.handleChange}
-          value={props.data.jobStartDate}
-        />
-
-        <label htmlFor="jobEndDate">End Date</label>
-        <input
-          type="month"
-          placeholder="End Date"
-          className="input"
-          name="jobEndDate"
-          onChange={props.handleChange}
-          value={props.data.jobEndDate}
-        />
-
-        <label htmlFor="jobCurrent">Still working here</label>
-        <input
-          type="checkbox"
-          name="jobCurrent"
-          onChange={props.handleChange}
-          checked={props.data.jobCurrent}
-        />
+        {experienceData.map((experience, index) => (<Experience key={index} experienceData={experience} handleExperienceChange={(e) => handleExperienceChange(e, index)} />))}
+        <button type="button" onClick={addExperience}>+ Add Experience</button>
         <br />
 
         <legend>Skills/Licenses/Certifications</legend>
@@ -265,6 +211,7 @@ export default function Input(props) {
           data={props.data} 
           schoolData={schoolData}
           projectData={projectData}
+          experienceData={experienceData}
         />
       </div>
     </div>
