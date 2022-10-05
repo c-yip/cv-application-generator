@@ -1,7 +1,7 @@
 import React from 'react';
 import ProjectsBullet from "./ProjectsBullet"
 
-export default function Projects(props) {
+export default function Projects(props) {  
   return (
     <div>
       <label htmlFor="projectTitle">Project Title</label>
@@ -45,7 +45,15 @@ export default function Projects(props) {
         />
 
         <label htmlFor="projectBullet">Project Bullet</label>
-        {props.projectBullet.map((bullet, index) => (<ProjectsBullet key={index} projectBulletData={bullet} handleProjectBulletChange={(e) => props.handleProjectBulletChange(e, index)} />))}
+        {props.projectData.projectBullets.map((projectBullet, index) => {
+          return (
+            <ProjectsBullet
+              key={index}
+              projectBulletData={projectBullet.projectBullet}
+              handleProjectBulletChange={(e) => props.handleProjectBulletChange(e, props.index, index)}
+            />
+          )
+        })}
         <button type="button" onClick={props.addProjectBullet}>+ Add Bullet</button>
     </div>
   )

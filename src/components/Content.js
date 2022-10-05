@@ -54,29 +54,36 @@ export default function Input(props) {
 
   function addProject() {
     setProjectData(prevData => [...prevData, {
-      projectTitle: '', projectLink: '', projectRepo: '', projectDescription: '', projectDescriptionBullet: '',
+      projectTitle: '', projectLink: '', projectRepo: '', projectDescription: '',
       projectBullets: [{projectBullet: ''},],
     }]);
   }
 
-  function handleProjectBulletChange(event, indexToChange) {
+  function handleProjectBulletChange(event, projectIndex, bulletIndex) {
     const { name, value } = event.target;
+    console.log('project index', projectIndex);
+    console.log('bullet index', bulletIndex);
     setProjectData(prevData => {
-      return prevData.map((project, index) => index === indexToChange ? {
+      return prevData.map((project, index) => index === projectIndex ? {
         ...prevData[index],
-        projectBullets: {
-          ...prevData[index].projectBullets,
+        projectBullets: prevData[index].projectBullets.map((projectBullet, index2) => index2 === bulletIndex ? {
+          ...prevData[index].projectBullets[index2],
           [name]: value
-        }
+        } : projectBullet)
       } : project);
     });
     console.log(projectData);
   }
 
-  function addProjectBullet() {
-    setProjectData(prevData => [...prevData, {
-      projectBullet: '',
-    }])
+  function addProjectBullet(indexToChange) {
+    // add project bullet to projectBullets array
+    setProjectData(prevData => {
+      return prevData.map((project, index) => index === indexToChange ? {
+        ...prevData[index],
+        projectBullets: [...prevData[index].projectBullets, {projectBullet: ''},]
+      } : project);
+    });
+    console.log('bullet added', projectData);
   }
 
   // experience
@@ -222,7 +229,8 @@ export default function Input(props) {
         <br />
 
         <legend>Projects</legend>
-        {projectData.map((project, index) => (<Projects key={index} projectData={project} handleProjectChange={(e) => handleProjectChange(e, index)} projectBullet={project.projectBullets}/>))}
+        {projectData.map((project, index) => (<Projects key={index} index={index} projectData={project} handleProjectChange={(e) => handleProjectChange(e, index)} 
+        handleProjectBulletChange={handleProjectBulletChange} addProjectBullet={() => addProjectBullet(index)}/>))}
         <button type="button" onClick={addProject}>+ Add Project</button> 
 
         <button>Submit</button>

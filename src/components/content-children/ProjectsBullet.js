@@ -6,7 +6,7 @@ export default function ProjectsBullet(props) {
       className="input"
       name="projectBullet"
       onChange={props.handleProjectBulletChange}
-      value={props.projectBulletData.projectBullet}
+      value={props.projectBulletData}
     />    
   )
 }
