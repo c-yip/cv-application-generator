@@ -37,6 +37,7 @@ export default function Input(props) {
   const [projectData, setProjectData] = React.useState([
     {
       projectTitle: '', projectLink: '', projectRepo: '', projectDescription: '', 
+      projectBullets: [{projectBullet: ''},],
     }
   ]);
 
@@ -54,7 +55,28 @@ export default function Input(props) {
   function addProject() {
     setProjectData(prevData => [...prevData, {
       projectTitle: '', projectLink: '', projectRepo: '', projectDescription: '', projectDescriptionBullet: '',
+      projectBullets: [{projectBullet: ''},],
     }]);
+  }
+
+  function handleProjectBulletChange(event, indexToChange) {
+    const { name, value } = event.target;
+    setProjectData(prevData => {
+      return prevData.map((project, index) => index === indexToChange ? {
+        ...prevData[index],
+        projectBullets: {
+          ...prevData[index].projectBullets,
+          [name]: value
+        }
+      } : project);
+    });
+    console.log(projectData);
+  }
+
+  function addProjectBullet() {
+    setProjectData(prevData => [...prevData, {
+      projectBullet: '',
+    }])
   }
 
   // experience
@@ -200,7 +222,7 @@ export default function Input(props) {
         <br />
 
         <legend>Projects</legend>
-        {projectData.map((project, index) => (<Projects key={index} projectData={project} handleProjectChange={(e) => handleProjectChange(e, index)} />))}
+        {projectData.map((project, index) => (<Projects key={index} projectData={project} handleProjectChange={(e) => handleProjectChange(e, index)} projectBullet={project.projectBullets}/>))}
         <button type="button" onClick={addProject}>+ Add Project</button> 
 
         <button>Submit</button>

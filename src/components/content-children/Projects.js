@@ -2,29 +2,6 @@ import React from 'react';
 import ProjectsBullet from "./ProjectsBullet"
 
 export default function Projects(props) {
-  const [projectBulletData, setProjectBulletData] = React.useState([
-    {
-      projectBullet: '',
-    },
-  ]);
-
-  function handleProjectBulletChange(event, indexToChange) {
-    const { name, value } = event.target;
-    setProjectBulletData(prevData => {
-      return prevData.map((item, index) => index === indexToChange ? {
-        ...prevData[index],
-        [name]: value
-      } : item);
-    });
-    console.log(projectBulletData);
-  }
-
-  function addProjectBullet() {
-    setProjectBulletData(prevData => [...prevData, {
-      projectBullet: '',
-    }])
-  }
-  
   return (
     <div>
       <label htmlFor="projectTitle">Project Title</label>
@@ -68,8 +45,8 @@ export default function Projects(props) {
         />
 
         <label htmlFor="projectBullet">Project Bullet</label>
-        {projectBulletData.map((bullet, index) => (<ProjectsBullet key={index} projectBulletData={bullet} handleProjectBulletChange={(e) => handleProjectBulletChange(e, index)} />))}
-        <button type="button" onClick={addProjectBullet}>+ Add Bullet</button>
+        {props.projectBullet.map((bullet, index) => (<ProjectsBullet key={index} projectBulletData={bullet} handleProjectBulletChange={(e) => props.handleProjectBulletChange(e, index)} />))}
+        <button type="button" onClick={props.addProjectBullet}>+ Add Bullet</button>
     </div>
   )
 }
