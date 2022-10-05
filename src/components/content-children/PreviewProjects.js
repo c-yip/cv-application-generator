@@ -5,7 +5,7 @@ export default function PreviewProjects(props) {
       <p className="project-link">{props.projectData.projectLink}</p>
       <p className="project-repo">{props.projectData.projectRepo}</p>
       <p className="project-description">{props.projectData.projectDescription}</p>
-      <p className="project-description-bullet">{props.projectData.projectDescriptionBullet}</p>
+      <p className="project-description-bullet">{props.projectBulletData}</p>
     </div>
   )
 }

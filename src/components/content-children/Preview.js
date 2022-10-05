@@ -35,7 +35,16 @@ export default function Preview(props) {
 
       <div className="projects">
         <h2 className="project-title">Projects</h2>
-        { props.projectData.map((project, index) => <PreviewProjects key={index} projectData={project} />) }
+        { props.projectData.map((project, index) => {
+          return (
+            <PreviewProjects 
+              key={index} 
+              projectData={project} 
+              projectBulletData={project.projectBullets.map((bullet, index2) => bullet.projectBullet)}
+            />
+          )
+          })}
+        
       </div>
 
       <div className="experience">
