@@ -1,3 +1,5 @@
+import PreviewProjectBullets from './PreviewProjectBullets';
+
 export default function PreviewProjects(props) {
   return (
     <div className="projects">
@@ -5,7 +7,12 @@ export default function PreviewProjects(props) {
       <p className="project-link">{props.projectData.projectLink}</p>
       <p className="project-repo">{props.projectData.projectRepo}</p>
       <p className="project-description">{props.projectData.projectDescription}</p>
-      <p className="project-description-bullet">{props.projectBulletData}</p>
+
+      <div className="project-bullet-container">
+      {props.projectData.projectBullets.map((bullet, index) => 
+        <PreviewProjectBullets key={index} projectBulletData={bullet.projectBullet} />
+      )}
+      </div>
     </div>
   )
 }

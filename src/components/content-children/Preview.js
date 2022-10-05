@@ -40,7 +40,6 @@ export default function Preview(props) {
             <PreviewProjects 
               key={index} 
               projectData={project} 
-              projectBulletData={project.projectBullets.map((bullet, index2) => bullet.projectBullet)}
             />
           )
           })}
