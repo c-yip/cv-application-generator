@@ -90,6 +90,7 @@ export default function Input(props) {
   const [experienceData, setExperienceData] = React.useState([
     {
       experienceTitle: '', experienceCompany: '', experienceStartDate: '', experienceEndDate: '', experienceCurrent: false, experienceDescription: '',
+      experienceBullets: [{experienceBullet: ''},],
     }
   ]);
 
@@ -104,10 +105,33 @@ export default function Input(props) {
     console.log(experienceData);
   }
 
+  function handleExperienceBulletChange(event, experienceIndex, bulletIndex) {
+    const { name, value } = event.target;
+    setExperienceData(prevData => {
+      return prevData.map((experience, index) => index === experienceIndex ? {
+        ...prevData[index],
+        experienceBullets: prevData[index].experienceBullets.map((experienceBullet, index2) => index2 === bulletIndex ? {
+          ...prevData[index].experienceBullets[index2],
+          [name]: value
+        } : experienceBullet)
+      }: experience);
+    })
+  }
+
   function addExperience() {
     setExperienceData(prevData => [...prevData, {
       experienceTitle: '', experienceCompany: '', experienceStartDate: '', experienceEndDate: '', experienceCurrent: false, experienceDescription: '',
+      experienceBullets: [{experienceBullet: ''},],
     }]);
+  }
+
+  function addExperienceBullet(indexToChange) {
+    setExperienceData(prevData => {
+      return prevData.map((experience, index) => index === indexToChange ? {
+        ...prevData[index],
+        experienceBullets: [...prevData[index].experienceBullets, {experienceBullet: ''},]
+      } : experience);
+    });
   }
 
   return (
@@ -202,7 +226,8 @@ export default function Input(props) {
         <br />
 
         <legend>Experience</legend>
-        {experienceData.map((experience, index) => (<Experience key={index} experienceData={experience} handleExperienceChange={(e) => handleExperienceChange(e, index)} />))}
+        {experienceData.map((experience, index) => (<Experience key={index} index={index} experienceData={experience} handleExperienceChange={(e) => handleExperienceChange(e, index)} 
+        handleExperienceBulletChange={handleExperienceBulletChange} addExperienceBullet={() => addExperienceBullet(index)}/>))}
         <button type="button" onClick={addExperience}>+ Add Experience</button>
         <br />
 

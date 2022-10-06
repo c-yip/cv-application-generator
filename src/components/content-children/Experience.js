@@ -2,27 +2,6 @@ import React from 'react';
 import ExperienceBullets from "./ExperienceBullets";
 
 export default function Experience(props) {
-  const [experienceBullets, setExperienceBullets] = React.useState([
-    { experienceBullet: "" }
-  ]);
-
-  const handleExperienceBulletChange = (e, indexToChange) => {
-    const {name, value} = e.target
-    setExperienceBullets(prevData => {
-      return prevData.map((item, index) => index === indexToChange ? {
-        ...prevData[index],
-        [name]: value
-      } : item);
-    });
-    console.log(experienceBullets);
-  };
-
-  const addExperienceBullet = () => {
-    setExperienceBullets(prevData => [...prevData, {
-      experienceBullet: '',
-    }])
-  };
-  
   return(
     <div>
 <label htmlFor="employerName">Employer Name</label>
@@ -66,8 +45,16 @@ export default function Experience(props) {
     />
 
     <label htmlFor="jobBullet">Job Bullet</label>
-    {experienceBullets.map((item, index) => (<ExperienceBullets key={index} experienceBullets={item} handleExperienceBulletChange={(e) => handleExperienceBulletChange(e, index)} />))}
-    <button type="button" onClick={addExperienceBullet}>+ Add Bullet</button>
+    {props.experienceData.experienceBullets.map((experienceBullet, index) => {
+      return (
+        <ExperienceBullets
+          key={index}
+          experienceBulletData={experienceBullet.experienceBullet}
+          handleExperienceBulletChange={(e) => props.handleExperienceBulletChange(e, props.index, index)}
+        />
+      )
+    })}
+    <button type="button" onClick={props.addExperienceBullet}>+ Add Bullet</button>
 
     <label htmlFor="jobStartDate">Start Date</label>
     <input
