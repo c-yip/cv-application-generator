@@ -1,6 +1,6 @@
-import PreviewEducation from "./PreviewEducation";
-import PreviewProjects from "./PreviewProjects";
-import PreviewExperience from "./PreviewExperience";
+import PreviewEducation from "./education/PreviewEducation";
+import PreviewProjects from "./project/PreviewProjects";
+import PreviewExperience from "./experience/PreviewExperience";
 
 export default function Preview(props) {
   // converts numbers to phone number format

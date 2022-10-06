@@ -1,10 +1,10 @@
 import React from 'react';
-import Schools from './content-children/Schools';
+import Schools from './content-children/education/Schools';
 import Preview from './content-children/Preview';
-import Projects from './content-children/Projects';
-import Experience from './content-children/Experience';
+import Projects from './content-children/project/Projects';
+import Experience from './content-children/experience/Experience';
 
-export default function Input(props) {  
+export default function Content(props) {  
   // education
   const [schoolData, setSchoolData] = React.useState([
     {
