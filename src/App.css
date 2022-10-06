@@ -1,3 +1,8 @@
+h1, h2, p {
+  padding: 0;
+  margin: 0;
+}
+
 .App {
   display: grid;
   grid-template-areas: 
@@ -41,8 +46,52 @@
 .content {
   grid-area: content;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: .5fr 1fr;
   background-color: grey;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.location > img {
+  width: 15px;
+  height: auto;
+}
+
+.email {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.email > img {
+  width: 15px;
+  height: auto;
+}
+
+.phone {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.phone > img {
+  width: 15px;
+  height: auto;
+}
+
+.linkedIn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.linkedIn > img {
+  width: 15px;
+  height: auto;
 }
 
 .form {
@@ -99,11 +148,13 @@ button {
 }
 
 .resume-page {
+  width: 210mm;
+  height: 297mm;
   background-color: white;
   padding: 50px;
   box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
-  position: fixed;
-  top: 191px;
+  position: sticky;
+  top: 50px;
 }
 
 .personal-info {
@@ -111,9 +162,10 @@ button {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 10px;
 }
 
 .contact {
   display: flex;
-  gap: 10px;
+  gap: 15px;
 }

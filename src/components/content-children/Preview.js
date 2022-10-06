@@ -20,12 +20,41 @@ export default function Preview(props) {
         <div className="name">
           <h1>{props.data.firstName} {props.data.middle} {props.data.lastName}</h1>
         </div>
+
         <div className="contact">
-          <p>{props.data.location}</p>
-          <p>{props.data.email}</p>
-          <p>{formatPhoneNumber(props.data.phone)}</p>
-          <p>{props.data.linkedIn}</p>
+          <div className="location">
+            <img 
+              src={require("../../images/pin.png")} 
+              alt="pin">
+            </img> 
+            <p>{props.data.location}</p>
+          </div>
+
+          <div className="email">
+            <img
+              src={require("../../images/email.png")}
+              alt="email">
+            </img>
+            <p>{props.data.email}</p>
+          </div>
+
+          <div className="phone">
+            <img
+              src={require("../../images/phone-call.png")}
+              alt="phone">
+            </img>
+            <p>{formatPhoneNumber(props.data.phone)}</p>
+          </div>
+
+          <div className="linkedIn">
+            <img
+              src={require("../../images/linkedin.png")}
+              alt="linkedIn">
+            </img>
+            <p>{props.data.linkedIn}</p>
+          </div>
         </div>
+
       </div>
 
       <div className="objective">
