@@ -8,7 +8,7 @@ export default function Content(props) {
   // education
   const [schoolData, setSchoolData] = React.useState([
     {
-      schoolName: '', schoolState: '', schoolCity: '', schoolDegree: '', schoolStartDate: '', schoolEndDate: '', schoolCurrent: false,
+      schoolName: 'Chapman University Dale E. Fowler School of Law', schoolLocation: 'Orange, CA', schoolDegree: 'Juris Doctor', schoolStartDate: '', schoolEndDate: '', schoolCurrent: false,
     }
   ]);
 

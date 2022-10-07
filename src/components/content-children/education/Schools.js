@@ -11,24 +11,14 @@ export default function Schools(props) {
         value={props.schoolData.schoolName}
       />
 
-      <label htmlFor="schoolCity">City</label>
+      <label htmlFor="schoolCity">City, State</label>
       <input 
         type="text"
         placeholder="City"
         className="input"
         name="schoolCity"
         onChange={props.handleSchoolChange}
-        value={props.schoolData.schoolCity}
-      />
-
-      <label htmlFor="schoolState">State</label>
-      <input
-        type="text"
-        placeholder="State"
-        className="input"
-        name="schoolState"
-        onChange={props.handleSchoolChange}
-        value={props.schoolData.schoolState}
+        value={props.schoolData.schoolLocation}
       />
 
       <label htmlFor="schoolDegree">Degree</label>

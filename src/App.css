@@ -190,11 +190,11 @@ button {
   gap: 0px;
 }
 
-.project-title, .experience-job-title {
+.project-title, .experience-job-title, .school-degree {
   font-weight: bold;
 }
 
-.project-languages-links, .experience-company {
+.project-languages-links, .experience-company, .school-name {
   display: flex; 
   gap: 10px;
   font-style: italic;
@@ -210,7 +210,7 @@ button {
   justify-content: space-between;
 }
 
-.experience-dates {
+.experience-dates, .education-dates {
   display: flex;
   gap: 5px;
 }
