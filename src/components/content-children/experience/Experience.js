@@ -66,12 +66,12 @@ export default function Experience(props) {
       value={props.experienceData.experienceEndDate}
     />
 
-    <label htmlFor="jobCurrent">Still working here</label>
+    <label htmlFor="experienceCurrent">Still working here</label>
     <input
       type="checkbox"
-      name="jobCurrent"
+      name="experienceCurrent"
       onChange={props.handleExperienceChange}
-      checked={props.experienceData.jobCurrent}
+      checked={props.experienceData.experienceCurrent}
     />
     </div>
   )

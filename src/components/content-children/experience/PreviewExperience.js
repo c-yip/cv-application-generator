@@ -13,7 +13,8 @@ export default function PreviewExperience(props) {
         <p className="experience-job-title">{props.data.experienceTitle}</p>
         <div className="experience-dates">
           <p className="job-start-date">{convertYearMonthToMonthYear(props.data.experienceStartDate)} -</p>
-          <p className="job-end-date">{convertYearMonthToMonthYear(props.data.experienceEndDate)}</p>
+          {!props.data.experienceCurrent && <p className="job-end-date">{convertYearMonthToMonthYear(props.data.experienceEndDate)}</p>}
+          {props.data.experienceCurrent && <p className="job-end-date">present</p>}
         </div>
       </div>
       
