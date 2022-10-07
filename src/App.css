@@ -155,6 +155,9 @@ button {
   box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
   position: sticky;
   top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
 }
 
 .personal-info {
@@ -168,4 +171,36 @@ button {
 .contact {
   display: flex;
   gap: 15px;
+}
+
+.objective-title, .project-heading, .skills-title, .education-title, .experience-title {
+  border-bottom: #222 2px solid;
+}
+
+/* objective */
+.objective, .projects-div, .skills, .education-div, .experience {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.project-title {
+  font-weight: bold;
+}
+
+.project-languages-links {
+  display: flex; 
+  gap: 10px;
+  font-style: italic;
+}
+
+.project-bullet-container {
+  margin: 0;
+  padding-left: 20px;
 }

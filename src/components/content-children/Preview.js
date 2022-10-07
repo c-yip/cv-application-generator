@@ -58,12 +58,12 @@ export default function Preview(props) {
       </div>
 
       <div className="objective">
-        <h2 className="objective-title">Objective</h2>
+        <h2 className="objective-title">PROFILE</h2>
         <p className="objective-info">{props.data.objective}</p>
       </div>
 
-      <div className="projects">
-        <h2 className="project-title">Projects</h2>
+      <div className="projects-div">
+        <h2 className="project-heading">PROJECTS</h2>
         { props.projectData.map((project, index) => {
           return (
             <PreviewProjects 
@@ -76,15 +76,17 @@ export default function Preview(props) {
       </div>
 
       <div className="experience">
-        <h2 className="experience-title">Experience</h2>
+        <h2 className="experience-title">EXPERIENCE</h2>
         { props.experienceData.map((experience, index) => <PreviewExperience key={index} data={experience} />) }
       </div>
       
-      <h2 className="education-title">Education</h2>
-      { props.schoolData.map((school, index) => <PreviewEducation key={index} schoolData={school}/>) } 
+      <div className="education-div">
+        <h2 className="education-title">EDUCATION</h2>
+        { props.schoolData.map((school, index) => <PreviewEducation key={index} schoolData={school}/>) } 
+      </div>
 
       <div className="skills">
-        <h2 className="skills-title">Skills</h2>
+        <h2 className="skills-title">SKILLS</h2>
         <p className="skill-name">{props.data.skillTitle}</p>
         <p className="skill-description">{props.data.skillDescription}</p>
       </div>

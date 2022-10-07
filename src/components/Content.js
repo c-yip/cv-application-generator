@@ -36,8 +36,8 @@ export default function Content(props) {
   // projects
   const [projectData, setProjectData] = React.useState([
     {
-      projectTitle: '', projectLink: '', projectRepo: '', projectDescription: '', 
-      projectBullets: [{projectBullet: ''},],
+      projectTitle: 'Project Title', projectLink: '', projectRepo: 'https://github.com/project', projectLanguages: 'React, JavaScript, HTML, CSS', 
+      projectBullets: [{projectBullet: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},],
     }
   ]);
 
@@ -54,7 +54,7 @@ export default function Content(props) {
 
   function addProject() {
     setProjectData(prevData => [...prevData, {
-      projectTitle: '', projectLink: '', projectRepo: '', projectDescription: '',
+      projectTitle: '', projectLink: '', projectRepo: '', projectLanguages: '',
       projectBullets: [{projectBullet: ''},],
     }]);
   }

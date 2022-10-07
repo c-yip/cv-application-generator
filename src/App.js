@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 function App() {
   const [data, setData] = React.useState({
     firstName: 'John', middle: 'A.', lastName: 'Doe', phone: '6664206969', email: 'j.doe@gmail.com', location: 'Los Angeles, CA', linkedIn: 'https://www.linkedin.com/in/doejohn/',
-    objective: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    objective: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   });
   
   function handleChange(event) {

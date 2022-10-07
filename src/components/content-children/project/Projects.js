@@ -14,7 +14,7 @@ export default function Projects(props) {
           value={props.projectData.projectTitle}
         />
 
-        <label htmlFor="projectLink">Live Link</label>
+        {/* <label htmlFor="projectLink">Live Link</label>
         <input
           type="text"
           placeholder="Link"
@@ -22,7 +22,7 @@ export default function Projects(props) {
           name="projectLink"
           onChange={props.handleProjectChange}
           value={props.projectData.projectLink}
-        />
+        /> */}
 
         <label htmlFor="projectRepo">Repo Link</label>
         <input
@@ -34,14 +34,14 @@ export default function Projects(props) {
           value={props.projectData.projectRepo}
         />
 
-        <label htmlFor="projectDescription">Project Description</label>
+        <label htmlFor="projectLanguages">Project Languages</label>
         <textarea
           type="text"
-          placeholder="Project Description"
+          placeholder="Project Languages"
           className="input"
-          name="projectDescription"
+          name="projectLanguages"
           onChange={props.handleProjectChange}
-          value={props.projectData.projectDescription}
+          value={props.projectData.projectLanguages}
         />
 
         <label htmlFor="projectBullet">Project Bullet</label>
