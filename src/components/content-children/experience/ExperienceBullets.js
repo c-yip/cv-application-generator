@@ -6,7 +6,7 @@ export default function ExperienceBullets(props) {
       className="input"
       name="experienceBullet"
       onChange={props.handleExperienceBulletChange}
-      value={props.experienceBulletData}
+      value={props.experienceBullet}
     />
   )
 }

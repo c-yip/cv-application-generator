@@ -75,7 +75,7 @@ export default function Preview(props) {
         
       </div>
 
-      <div className="experience">
+      <div className="experience-div">
         <h2 className="experience-title">EXPERIENCE</h2>
         { props.experienceData.map((experience, index) => <PreviewExperience key={index} data={experience} />) }
       </div>

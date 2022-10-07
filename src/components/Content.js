@@ -89,8 +89,8 @@ export default function Content(props) {
   // experience
   const [experienceData, setExperienceData] = React.useState([
     {
-      experienceTitle: '', experienceCompany: '', experienceStartDate: '', experienceEndDate: '', experienceCurrent: false, experienceDescription: '',
-      experienceBullets: [{experienceBullet: ''},],
+      experienceTitle: 'Your title', experienceCompany: 'Company Name', experienceStartDate: '', experienceEndDate: '', experienceCurrent: false, experienceDescription: '', experienceCityState: 'City, State',
+      experienceBullets: [{experienceBullet: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},],
     }
   ]);
 

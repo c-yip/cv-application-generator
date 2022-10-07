@@ -178,29 +178,39 @@ button {
 }
 
 /* objective */
-.objective, .projects-div, .skills, .education-div, .experience {
+.objective, .projects-div, .skills, .education-div, .experience-div {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.projects {
+.projects, .experience-info {
   display: flex;
   flex-direction: column;
   gap: 0px;
 }
 
-.project-title {
+.project-title, .experience-job-title {
   font-weight: bold;
 }
 
-.project-languages-links {
+.project-languages-links, .experience-company {
   display: flex; 
   gap: 10px;
   font-style: italic;
 }
 
-.project-bullet-container {
+.project-bullet-container, .experience-bullet-container {
   margin: 0;
   padding-left: 20px;
+}
+
+.flex-row-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.experience-dates {
+  display: flex;
+  gap: 5px;
 }
