@@ -190,7 +190,7 @@ button {
   gap: 0px;
 }
 
-.project-title, .experience-job-title, .school-degree {
+.project-title, .experience-job-title, .school-degree, .skill-name {
   font-weight: bold;
 }
 
@@ -213,4 +213,9 @@ button {
 .experience-dates, .education-dates {
   display: flex;
   gap: 5px;
+}
+
+.skills-container {
+  display: flex;
+  gap: 10px;
 }

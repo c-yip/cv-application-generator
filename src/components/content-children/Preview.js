@@ -87,8 +87,16 @@ export default function Preview(props) {
 
       <div className="skills">
         <h2 className="skills-title">SKILLS</h2>
-        <p className="skill-name">{props.data.skillTitle}</p>
-        <p className="skill-description">{props.data.skillDescription}</p>
+        <div className="skills-container">
+          { props.skillData.map((skill, index) => {
+            return (
+              <div className="skill-container" key={index}>
+                <p className="skill-name">{skill.skillName}</p>
+                <p className="skill-description">{skill.skillDescription}</p>
+              </div>
+            )
+          })}
+        </div>
       </div>
 
     </div>

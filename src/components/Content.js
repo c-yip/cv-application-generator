@@ -275,6 +275,7 @@ export default function Content(props) {
           schoolData={schoolData}
           projectData={projectData}
           experienceData={experienceData}
+          skillData={skillData}
         />
       </div>
     </div>
