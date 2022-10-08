@@ -3,6 +3,7 @@ import Schools from './content-children/education/Schools';
 import Preview from './content-children/Preview';
 import Projects from './content-children/project/Projects';
 import Experience from './content-children/experience/Experience';
+import Skills from './content-children/Skills';
 
 export default function Content(props) {  
   // education
@@ -134,6 +135,30 @@ export default function Content(props) {
     });
   }
 
+  // skills
+  const [skillData, setSkillData] = React.useState([
+    {
+      skillName: 'Skill Name', skillDescription: 'Description of skill',
+    },
+  ]);
+
+  function handleSkillChange(event, indexToChange) {
+    const { name, value } = event.target;
+    setSkillData(prevData => {
+      return prevData.map((skill, index) => index === indexToChange ? {
+        ...prevData[index],
+        [name]: value
+      } : skill);
+    });
+    console.log(skillData);
+  }
+
+  function addSkill() {
+    setSkillData(prevData => [...prevData, {
+      skillName: '', skillDescription: '',
+    }]);
+  }
+
   return (
     <div className='content'>
 
@@ -232,25 +257,8 @@ export default function Content(props) {
         <br />
 
         <legend>Skills/Licenses/Certifications</legend>
-        <label htmlFor="skillTitle">Skill Title</label>
-        <input 
-          type="text"
-          placeholder="Title"
-          className="input"
-          name="skillTitle"
-          onChange={props.handleChange}
-          value={props.data.skillTitle}
-        />
-
-        <label htmlFor="skillDescription">Skill Description</label>
-        <input 
-          type="text"
-          placeholder="Description"
-          className="input"
-          name="skillDescription"
-          onChange={props.handleChange}
-          value={props.data.skillDescription}
-        />
+        {skillData.map((skill, index) => <Skills key={index} skillData={skill} handleSkillChange={(e) => handleSkillChange(e, index)}/>)}
+        <button type="button" onClick={addSkill}>+ Add Skill</button>
         <br />
 
         <legend>Projects</legend>
