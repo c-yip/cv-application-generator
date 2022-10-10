@@ -47,11 +47,14 @@ export default function Projects(props) {
       <label htmlFor="projectBullet">Project Bullet</label>
       {props.projectData.projectBullets.map((projectBullet, index) => {
         return (
-          <ProjectsBullet
-            key={index}
-            projectBulletData={projectBullet.projectBullet}
-            handleProjectBulletChange={(e) => props.handleProjectBulletChange(e, props.index, index)}
-          />
+          <div>
+            <ProjectsBullet
+              key={index}
+              projectBulletData={projectBullet.projectBullet}
+              handleProjectBulletChange={(e) => props.handleProjectBulletChange(e, props.index, index)}
+            />
+            <button type="button" className='project-bullet-btn' onClick={() => props.removeProjectBullet(props.index, index)}>- Remove Bullet</button>
+          </div>
         )
       })}
       <button type="button" className='project-bullet-btn' onClick={props.addProjectBullet}>+ Add Bullet</button>

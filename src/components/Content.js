@@ -77,7 +77,6 @@ export default function Content(props) {
   }
 
   function addProjectBullet(indexToChange) {
-    // add project bullet to projectBullets array
     setProjectData(prevData => {
       return prevData.map((project, index) => index === indexToChange ? {
         ...prevData[index],
@@ -85,6 +84,16 @@ export default function Content(props) {
       } : project);
     });
     console.log('bullet added', projectData);
+  }
+
+  function removeProjectBullet(projectIndex, bulletIndex) {
+    setProjectData(prevData => {
+      return prevData.map((project, index) => index === projectIndex ? {
+        ...prevData[index],
+        projectBullets: prevData[index].projectBullets.filter((projectBullet, index2) => index2 !== bulletIndex)
+      } : project);
+    });
+    console.log('bullet removed', projectData);
   }
 
   // experience
@@ -248,7 +257,7 @@ export default function Content(props) {
           <legend>Projects</legend>
           <div className='project-input-div'>
             {projectData.map((project, index) => (<Projects key={index} index={index} projectData={project} handleProjectChange={(e) => handleProjectChange(e, index)} 
-            handleProjectBulletChange={handleProjectBulletChange} addProjectBullet={() => addProjectBullet(index)}/>))}
+            handleProjectBulletChange={handleProjectBulletChange} addProjectBullet={() => addProjectBullet(index)} removeProjectBullet={removeProjectBullet}/>))}
           </div>
           <br />
           <button type="button" onClick={addProject}>+ Add Project</button> 
