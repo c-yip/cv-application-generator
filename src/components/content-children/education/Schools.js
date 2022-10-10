@@ -1,6 +1,6 @@
 export default function Schools(props) {
   return (
-    <div>
+    <div className="education-section-div border-bottom">
       <label htmlFor="schoolName">School Name</label>
       <input
         type="text"

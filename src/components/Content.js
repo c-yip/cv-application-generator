@@ -244,18 +244,28 @@ export default function Content(props) {
         />
         <br />
 
-        <legend>Education</legend>
-        {/* iterates through schoolData, returns Schools component, handleChange takes in event param and index of schoolData */}
-        {schoolData.map((school, index) => (<Schools key={index} schoolData={school} handleSchoolChange={(e) => handleSchoolChange(e, index)} />))}
-        <button type="button" onClick={addSchool}>+ Add School</button>
+        <div>
+          <legend>Education</legend>
+          {/* iterates through schoolData, returns Schools component, handleChange takes in event param and index of schoolData */}
+          <div className='education-input-div'>
+            {schoolData.map((school, index) => (<Schools key={index} schoolData={school} handleSchoolChange={(e) => handleSchoolChange(e, index)} />))}
+          </div>
+          <br/>
+          <button type="button" onClick={addSchool}>+ Add School</button>
+        </div>
         <br />
 
-        <legend>Experience</legend>
-        {experienceData.map((experience, index) => (<Experience key={index} index={index} experienceData={experience} handleExperienceChange={(e) => handleExperienceChange(e, index)} 
-        handleExperienceBulletChange={handleExperienceBulletChange} addExperienceBullet={() => addExperienceBullet(index)}/>))}
-        <button type="button" onClick={addExperience}>+ Add Experience</button>
+        <div>
+          <legend>Experience</legend>
+          <div className='experience-input-div'>
+            {experienceData.map((experience, index) => (<Experience key={index} index={index} experienceData={experience} handleExperienceChange={(e) => handleExperienceChange(e, index)} 
+            handleExperienceBulletChange={handleExperienceBulletChange} addExperienceBullet={() => addExperienceBullet(index)}/>))}
+          </div>
+          <br />
+          <button type="button" onClick={addExperience}>+ Add Experience</button>
+        </div>
         <br />
-
+        
         <legend>Skills/Licenses/Certifications</legend>
         {skillData.map((skill, index) => <Skills key={index} skillData={skill} handleSkillChange={(e) => handleSkillChange(e, index)}/>)}
         <button type="button" onClick={addSkill}>+ Add Skill</button>
