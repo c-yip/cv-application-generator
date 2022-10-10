@@ -4,6 +4,8 @@ import Preview from './content-children/Preview';
 import Projects from './content-children/project/Projects';
 import Experience from './content-children/experience/Experience';
 import Skills from './content-children/Skills';
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
 
 export default function Content(props) {  
   // education
@@ -201,6 +203,21 @@ export default function Content(props) {
     });
   }
 
+  function createPDF() {
+    document.querySelector('.resume-page').classList.add('resume-generate');
+    
+    let resume = document.getElementById('pdf');
+    html2canvas(resume).then((canvas) => {
+      let imgData = canvas.toDataURL('image/png');
+      let doc = new jsPDF('p', 'mm', 'a4');
+      let imgHeight = canvas.height * 208 / canvas.width;
+      doc.addImage(imgData, 'PNG', 0, 0, 208, imgHeight);
+      doc.save('resume.pdf');
+    })
+
+    document.querySelector('.resume-page').classList.remove('resume-generate');
+  }
+
   return (
     <div className='content'>
 
@@ -347,7 +364,7 @@ export default function Content(props) {
         </div>
         <br />
 
-        <button>Submit</button>
+        <button type="button" className='pdf-btn' onClick={createPDF}>Create PDF</button>
       </form>
       
       <div className='preview'>

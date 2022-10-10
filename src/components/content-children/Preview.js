@@ -14,7 +14,7 @@ export default function Preview(props) {
   }
   
   return (
-    <div className="resume-page">
+    <div className="resume-page" id="pdf">
       
       <div className="personal-info">
         <div className="name">
