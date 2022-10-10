@@ -38,11 +38,14 @@ export default function Experience(props) {
         <label htmlFor="experienceBullets">Job Bullet</label>
         {props.experienceData.experienceBullets.map((experienceBullet, index) => {
           return (
-            <ExperienceBullets
-              key={index}
-              experienceBullet={experienceBullet.experienceBullet}
-              handleExperienceBulletChange={(e) => props.handleExperienceBulletChange(e, props.index, index)}
-            />
+            <div>
+              <ExperienceBullets
+                key={index}
+                experienceBullet={experienceBullet.experienceBullet}
+                handleExperienceBulletChange={(e) => props.handleExperienceBulletChange(e, props.index, index)}
+              />
+              <button type="button" onClick={() => props.removeExperienceBullet(props.index, index)}>-Remove Bullet</button>
+            </div>
           )
         })}
       </div>

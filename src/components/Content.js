@@ -156,6 +156,15 @@ export default function Content(props) {
     });
   }
 
+  function removeExperienceBullet(experienceIndex, bulletIndex) {
+    setExperienceData(prevData => {
+      return prevData.map((experience, index) => index === experienceIndex ? {
+        ...prevData[index],
+        experienceBullets: prevData[index].experienceBullets.filter((experienceBullet, index2) => index2 !== bulletIndex)
+      } : experience);
+      })
+    };
+
   // skills
   const [skillData, setSkillData] = React.useState([
     {
@@ -287,7 +296,7 @@ export default function Content(props) {
             {experienceData.map((experience, index) => (
               <div>
                 <Experience key={index} index={index} experienceData={experience} handleExperienceChange={(e) => handleExperienceChange(e, index)} 
-                handleExperienceBulletChange={handleExperienceBulletChange} addExperienceBullet={() => addExperienceBullet(index)}/>
+                handleExperienceBulletChange={handleExperienceBulletChange} addExperienceBullet={() => addExperienceBullet(index)} removeExperienceBullet={removeExperienceBullet}/>
                 <button type="button" onClick={() => removeExperience(index)}>-Remove Experience</button>
               </div>
             ))}
