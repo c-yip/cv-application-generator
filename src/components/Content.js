@@ -60,6 +60,12 @@ export default function Content(props) {
     }]);
   }
 
+  function removeProject(index) {
+    setProjectData(prevData => {
+      return prevData.filter((project, indexToRemove) => indexToRemove !== index);
+    });
+  }
+
   function handleProjectBulletChange(event, projectIndex, bulletIndex) {
     const { name, value } = event.target;
     console.log('project index', projectIndex);
@@ -256,8 +262,13 @@ export default function Content(props) {
         <div>
           <legend>Projects</legend>
           <div className='project-input-div'>
-            {projectData.map((project, index) => (<Projects key={index} index={index} projectData={project} handleProjectChange={(e) => handleProjectChange(e, index)} 
-            handleProjectBulletChange={handleProjectBulletChange} addProjectBullet={() => addProjectBullet(index)} removeProjectBullet={removeProjectBullet}/>))}
+            {projectData.map((project, index) => (
+              <div>
+                <Projects key={index} index={index} projectData={project} handleProjectChange={(e) => handleProjectChange(e, index)} 
+                handleProjectBulletChange={handleProjectBulletChange} addProjectBullet={() => addProjectBullet(index)} removeProjectBullet={removeProjectBullet}/>
+                <button type="button" onClick={() => removeProject(index)}>-Remove Project</button>
+              </div>
+            ))}
           </div>
           <br />
           <button type="button" onClick={addProject}>+ Add Project</button> 
