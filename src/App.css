@@ -173,12 +173,11 @@ button {
   gap: 15px;
 }
 
-.objective-title, .project-heading, .skills-title, .education-title, .experience-title {
+.objective-title, .project-heading, .skills-title-preview, .education-title, .experience-title {
   border-bottom: #222 2px solid;
 }
 
-/* objective */
-.objective, .projects-div, .skills, .education-div, .experience-div {
+.objective, .projects-div, .skills-div, .education-div, .experience-div {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -215,7 +214,18 @@ button {
   gap: 5px;
 }
 
-.skills-container {
+.skills-container-preview {
   display: flex;
-  gap: 10px;
+  gap: 0;
+  flex-direction: column;
+}
+
+.skill-container-preview {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 10px;
+}
+
+.skill-name-preview {
+  font-weight: bold;
 }

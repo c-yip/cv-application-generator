@@ -85,14 +85,14 @@ export default function Preview(props) {
         { props.schoolData.map((school, index) => <PreviewEducation key={index} schoolData={school}/>) } 
       </div>
 
-      <div className="skills">
-        <h2 className="skills-title">SKILLS</h2>
-        <div className="skills-container">
+      <div className="skills-div">
+        <h2 className="skills-title-preview">SKILLS</h2>
+        <div className="skills-container-preview">
           { props.skillData.map((skill, index) => {
             return (
-              <div className="skill-container" key={index}>
-                <p className="skill-name">{skill.skillName}</p>
-                <p className="skill-description">{skill.skillDescription}</p>
+              <div className="skill-container-preview" key={index}>
+                <p className="skill-name-preview">{skill.skillName}:</p>
+                <p className="skill-description-preview">{skill.skillDescription}</p>
               </div>
             )
           })}
