@@ -265,16 +265,24 @@ export default function Content(props) {
           <button type="button" onClick={addExperience}>+ Add Experience</button>
         </div>
         <br />
-        
-        <legend>Skills/Licenses/Certifications</legend>
-        {skillData.map((skill, index) => <Skills key={index} skillData={skill} handleSkillChange={(e) => handleSkillChange(e, index)}/>)}
-        <button type="button" onClick={addSkill}>+ Add Skill</button>
+
+        <div>
+          <legend>Skills/Licenses/Certifications</legend>
+          {skillData.map((skill, index) => <Skills key={index} skillData={skill} handleSkillChange={(e) => handleSkillChange(e, index)}/>)}
+          <br />
+          <button type="button" onClick={addSkill}>+ Add Skill</button>
+        </div>
         <br />
 
-        <legend>Projects</legend>
-        {projectData.map((project, index) => (<Projects key={index} index={index} projectData={project} handleProjectChange={(e) => handleProjectChange(e, index)} 
-        handleProjectBulletChange={handleProjectBulletChange} addProjectBullet={() => addProjectBullet(index)}/>))}
-        <button type="button" onClick={addProject}>+ Add Project</button> 
+        <div>
+          <legend>Projects</legend>
+          <div className='project-input-div'>
+            {projectData.map((project, index) => (<Projects key={index} index={index} projectData={project} handleProjectChange={(e) => handleProjectChange(e, index)} 
+            handleProjectBulletChange={handleProjectBulletChange} addProjectBullet={() => addProjectBullet(index)}/>))}
+          </div>
+          <br />
+          <button type="button" onClick={addProject}>+ Add Project</button> 
+        </div>
 
         <button>Submit</button>
       </form>

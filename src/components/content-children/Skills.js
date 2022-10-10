@@ -1,6 +1,6 @@
 export default function Skills(props) {
   return (
-    <div className="skills">
+    <div className="skills border-bottom">
       <label htmlFor="skillName">Skill Title</label>
       <input 
         type="text"

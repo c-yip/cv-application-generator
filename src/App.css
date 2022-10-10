@@ -236,7 +236,7 @@ button:hover {
   font-weight: bold;
 }
 
-.education-input-div, .experience-input-div {
+.education-input-div, .experience-input-div, .project-input-div {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -244,4 +244,8 @@ button:hover {
 
 .border-bottom {
   border-bottom: 1px solid #0000006e;
+}
+
+.project-bullet-btn {
+  margin-bottom: 5px;
 }
