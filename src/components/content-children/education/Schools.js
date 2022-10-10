@@ -11,12 +11,12 @@ export default function Schools(props) {
         value={props.schoolData.schoolName}
       />
 
-      <label htmlFor="schoolCity">City, State</label>
+      <label htmlFor="schoolLocation">City, State</label>
       <input 
         type="text"
-        placeholder="City"
+        placeholder="City, State"
         className="input"
-        name="schoolCity"
+        name="schoolLocation"
         onChange={props.handleSchoolChange}
         value={props.schoolData.schoolLocation}
       />

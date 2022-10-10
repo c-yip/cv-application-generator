@@ -30,7 +30,7 @@ export default function Content(props) {
   function addSchool() {
     // adds a new school object to the schoolData array
     setSchoolData(prevData => [...prevData, {
-      schoolName: '', schoolState: '', schoolCity: '', schoolDegree: '', schoolStartDate: '', schoolEndDate: '', schoolCurrent: false,
+      schoolName: '', schoolLocation: '', schoolDegree: '', schoolStartDate: '', schoolEndDate: '', schoolCurrent: false,
     }]);
   }
 
