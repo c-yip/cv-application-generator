@@ -94,10 +94,6 @@ h1, h2, p {
   height: auto;
 }
 
-.form {
-  
-}
-
 form {
   background-color: white;
   padding: 50px;
@@ -151,6 +147,8 @@ button:hover {
 .preview {
   background-color: white;
   padding: 50px;
+  display: flex;
+  justify-content: center;
 }
 
 .resume-page {
