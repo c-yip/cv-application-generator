@@ -245,15 +245,15 @@ export default function Content(props) {
         <br />
 
         <div>
-          <legend>Education</legend>
-          {/* iterates through schoolData, returns Schools component, handleChange takes in event param and index of schoolData */}
-          <div className='education-input-div'>
-            {schoolData.map((school, index) => (<Schools key={index} schoolData={school} handleSchoolChange={(e) => handleSchoolChange(e, index)} />))}
+          <legend>Projects</legend>
+          <div className='project-input-div'>
+            {projectData.map((project, index) => (<Projects key={index} index={index} projectData={project} handleProjectChange={(e) => handleProjectChange(e, index)} 
+            handleProjectBulletChange={handleProjectBulletChange} addProjectBullet={() => addProjectBullet(index)}/>))}
           </div>
-          <br/>
-          <button type="button" onClick={addSchool}>+ Add School</button>
+          <br />
+          <button type="button" onClick={addProject}>+ Add Project</button> 
         </div>
-        <br />
+        <br/>
 
         <div>
           <legend>Experience</legend>
@@ -267,22 +267,23 @@ export default function Content(props) {
         <br />
 
         <div>
+          <legend>Education</legend>
+          {/* iterates through schoolData, returns Schools component, handleChange takes in event param and index of schoolData */}
+          <div className='education-input-div'>
+            {schoolData.map((school, index) => (<Schools key={index} schoolData={school} handleSchoolChange={(e) => handleSchoolChange(e, index)} />))}
+          </div>
+          <br/>
+          <button type="button" onClick={addSchool}>+ Add School</button>
+        </div>
+        <br />
+
+        <div>
           <legend>Skills/Licenses/Certifications</legend>
           {skillData.map((skill, index) => <Skills key={index} skillData={skill} handleSkillChange={(e) => handleSkillChange(e, index)}/>)}
           <br />
           <button type="button" onClick={addSkill}>+ Add Skill</button>
         </div>
         <br />
-
-        <div>
-          <legend>Projects</legend>
-          <div className='project-input-div'>
-            {projectData.map((project, index) => (<Projects key={index} index={index} projectData={project} handleProjectChange={(e) => handleProjectChange(e, index)} 
-            handleProjectBulletChange={handleProjectBulletChange} addProjectBullet={() => addProjectBullet(index)}/>))}
-          </div>
-          <br />
-          <button type="button" onClick={addProject}>+ Add Project</button> 
-        </div>
 
         <button>Submit</button>
       </form>
