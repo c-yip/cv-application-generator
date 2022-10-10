@@ -141,6 +141,12 @@ export default function Content(props) {
     }]);
   }
 
+  function removeExperience(index) {
+    setExperienceData(prevData => {
+      return prevData.filter((experience, indexToRemove) => indexToRemove !== index);
+    })
+  }
+
   function addExperienceBullet(indexToChange) {
     setExperienceData(prevData => {
       return prevData.map((experience, index) => index === indexToChange ? {
@@ -278,8 +284,13 @@ export default function Content(props) {
         <div>
           <legend>Experience</legend>
           <div className='experience-input-div'>
-            {experienceData.map((experience, index) => (<Experience key={index} index={index} experienceData={experience} handleExperienceChange={(e) => handleExperienceChange(e, index)} 
-            handleExperienceBulletChange={handleExperienceBulletChange} addExperienceBullet={() => addExperienceBullet(index)}/>))}
+            {experienceData.map((experience, index) => (
+              <div>
+                <Experience key={index} index={index} experienceData={experience} handleExperienceChange={(e) => handleExperienceChange(e, index)} 
+                handleExperienceBulletChange={handleExperienceBulletChange} addExperienceBullet={() => addExperienceBullet(index)}/>
+                <button type="button" onClick={() => removeExperience(index)}>-Remove Experience</button>
+              </div>
+            ))}
           </div>
           <br />
           <button type="button" onClick={addExperience}>+ Add Experience</button>
