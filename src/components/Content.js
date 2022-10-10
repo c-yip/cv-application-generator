@@ -34,6 +34,12 @@ export default function Content(props) {
     }]);
   }
 
+  function removeSchool(indexToRemove) {
+    setSchoolData(prevData => {
+      return prevData.filter((school, index) => index !== indexToRemove);
+    })
+  }
+
   // projects
   const [projectData, setProjectData] = React.useState([
     {
@@ -189,6 +195,12 @@ export default function Content(props) {
     }]);
   }
 
+  function removeSkill(index) {
+    setSkillData(prevData => {
+      return prevData.filter((skill, indexToRemove) => indexToRemove !== index);
+    });
+  }
+
   return (
     <div className='content'>
 
@@ -310,7 +322,12 @@ export default function Content(props) {
           <legend>Education</legend>
           {/* iterates through schoolData, returns Schools component, handleChange takes in event param and index of schoolData */}
           <div className='education-input-div'>
-            {schoolData.map((school, index) => (<Schools key={index} schoolData={school} handleSchoolChange={(e) => handleSchoolChange(e, index)} />))}
+            {schoolData.map((school, index) => (
+              <div>
+                <Schools key={index} schoolData={school} handleSchoolChange={(e) => handleSchoolChange(e, index)} />
+                <button type="button" onClick={() => removeSchool(index)}>-Remove School</button>
+              </div>
+            ))}
           </div>
           <br/>
           <button type="button" onClick={addSchool}>+ Add School</button>
@@ -319,7 +336,12 @@ export default function Content(props) {
 
         <div>
           <legend>Skills/Licenses/Certifications</legend>
-          {skillData.map((skill, index) => <Skills key={index} skillData={skill} handleSkillChange={(e) => handleSkillChange(e, index)}/>)}
+          {skillData.map((skill, index) => (
+            <div>
+              <Skills key={index} skillData={skill} handleSkillChange={(e) => handleSkillChange(e, index)}/>
+              <button type="button" onClick={() => removeSkill(index)}>-Remove Skill</button>
+            </div>
+          ))}
           <br />
           <button type="button" onClick={addSkill}>+ Add Skill</button>
         </div>
