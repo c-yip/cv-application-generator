@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import ExperienceBullets from "./ExperienceBullets";
 
 export default function Experience(props) {
-  return(
-    <div className='border-bottom'>
+  return (
+    <div className="border-bottom">
       <label htmlFor="experienceCompany">Employer Name</label>
       <input
         type="text"
@@ -19,7 +19,7 @@ export default function Experience(props) {
         type="text"
         placeholder="City"
         className="input"
-        name="experienceCityState" 
+        name="experienceCityState"
         onChange={props.handleExperienceChange}
         value={props.experienceData.experienceCityState}
       />
@@ -34,23 +34,42 @@ export default function Experience(props) {
         value={props.experienceData.experienceTitle}
       />
 
-      <div className='experience-bullet-section'>
+      <div className="experience-bullet-section">
         <label htmlFor="experienceBullets">Job Bullet</label>
-        {props.experienceData.experienceBullets.map((experienceBullet, index) => {
-          return (
-            <div>
-              <ExperienceBullets
-                key={index}
-                experienceBullet={experienceBullet.experienceBullet}
-                handleExperienceBulletChange={(e) => props.handleExperienceBulletChange(e, props.index, index)}
-              />
-              <button type="button" onClick={() => props.removeExperienceBullet(props.index, index)}>-Remove Bullet</button>
-            </div>
-          )
-        })}
+        {props.experienceData.experienceBullets.map(
+          (experienceBullet, index) => {
+            return (
+              <div>
+                <ExperienceBullets
+                  key={index}
+                  experienceBullet={experienceBullet.experienceBullet}
+                  handleExperienceBulletChange={(e) =>
+                    props.handleExperienceBulletChange(e, props.index, index)
+                  }
+                />
+                <button
+                  type="button"
+                  onClick={() =>
+                    props.removeExperienceBullet(props.index, index)
+                  }
+                  className="red-background"
+                >
+                  - Remove Bullet
+                </button>
+              </div>
+            );
+          }
+        )}
       </div>
-      <button type="button" onClick={props.addExperienceBullet}>+ Add Bullet</button>
-      <br/>
+      <br />
+      <button
+        type="button"
+        onClick={props.addExperienceBullet}
+        className="green-background"
+      >
+        + Add Bullet
+      </button>
+      <br />
 
       <label htmlFor="experienceStartDate">Start Date</label>
       <input
@@ -80,5 +99,5 @@ export default function Experience(props) {
         checked={props.experienceData.experienceCurrent}
       />
     </div>
-  )
+  );
 }

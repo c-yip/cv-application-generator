@@ -1,15 +1,16 @@
-h1, h2, p {
+h1,
+h2,
+p {
   padding: 0;
   margin: 0;
 }
 
 .App {
   display: grid;
-  grid-template-areas: 
-  "header header header"
-  "content content content"
-  "footer footer footer"
-  ;
+  grid-template-areas:
+    "header header header"
+    "content content content"
+    "footer footer footer";
 }
 
 .header {
@@ -35,7 +36,7 @@ h1, h2, p {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  font-weight: 600;  
+  font-weight: 600;
 }
 
 .footer > a > img {
@@ -46,7 +47,7 @@ h1, h2, p {
 .content {
   grid-area: content;
   display: grid;
-  grid-template-columns: .5fr 1fr;
+  grid-template-columns: 0.5fr 1fr;
   background-color: grey;
 }
 
@@ -99,7 +100,7 @@ form {
   padding: 50px;
   display: flex;
   flex-direction: column;
-  box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
+  box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.75);
 }
 
 .input {
@@ -109,14 +110,14 @@ form {
   border-radius: 5px;
   border: 1px solid gray;
   padding: 5px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 legend {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 5px;
-  text-decoration: underline
+  text-decoration: underline;
 }
 
 label {
@@ -132,7 +133,7 @@ button {
   border: none;
   background-color: #222;
   color: white;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
   align-self: center;
@@ -156,7 +157,7 @@ button:hover {
   height: 297mm;
   background-color: white;
   padding: 50px;
-  box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
+  box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.75);
   position: sticky;
   top: 50px;
   display: flex;
@@ -181,33 +182,48 @@ button:hover {
   gap: 15px;
 }
 
-.objective-title, .project-heading, .skills-title-preview, .education-title, .experience-title {
+.objective-title,
+.project-heading,
+.skills-title-preview,
+.education-title,
+.experience-title {
   border-bottom: #222 2px solid;
 }
 
-.objective, .projects-div, .skills-div, .education-div, .experience-div {
+.objective,
+.projects-div,
+.skills-div,
+.education-div,
+.experience-div {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.projects, .experience-info {
+.projects,
+.experience-info {
   display: flex;
   flex-direction: column;
   gap: 0px;
 }
 
-.project-title, .experience-job-title, .school-degree, .skill-name {
+.project-title,
+.experience-job-title,
+.school-degree,
+.skill-name {
   font-weight: bold;
 }
 
-.project-languages-links, .experience-company, .school-name {
-  display: flex; 
+.project-languages-links,
+.experience-company,
+.school-name {
+  display: flex;
   gap: 10px;
   font-style: italic;
 }
 
-.project-bullet-container, .experience-bullet-container {
+.project-bullet-container,
+.experience-bullet-container {
   margin: 0;
   padding-left: 20px;
 }
@@ -217,7 +233,8 @@ button:hover {
   justify-content: space-between;
 }
 
-.experience-dates, .education-dates {
+.experience-dates,
+.education-dates {
   display: flex;
   gap: 5px;
 }
@@ -238,7 +255,9 @@ button:hover {
   font-weight: bold;
 }
 
-.education-input-div, .experience-input-div, .project-input-div {
+.education-input-div,
+.experience-input-div,
+.project-input-div {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -246,8 +265,17 @@ button:hover {
 
 .border-bottom {
   border-bottom: 1px solid #0000006e;
+  margin-bottom: 10px;
 }
 
 .project-bullet-btn {
   margin-bottom: 5px;
+}
+
+.red-background {
+  background-color: #ff0000;
+}
+
+.green-background {
+  background-color: #00be00;
 }

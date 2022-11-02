@@ -1,9 +1,9 @@
-import React from 'react';
-import ProjectsBullet from "./ProjectsBullet"
+import React from "react";
+import ProjectsBullet from "./ProjectsBullet";
 
-export default function Projects(props) {  
+export default function Projects(props) {
   return (
-    <div className='border-bottom'>
+    <div className="border-bottom">
       <label htmlFor="projectTitle">Project Title</label>
       <input
         type="text"
@@ -51,13 +51,27 @@ export default function Projects(props) {
             <ProjectsBullet
               key={index}
               projectBulletData={projectBullet.projectBullet}
-              handleProjectBulletChange={(e) => props.handleProjectBulletChange(e, props.index, index)}
+              handleProjectBulletChange={(e) =>
+                props.handleProjectBulletChange(e, props.index, index)
+              }
             />
-            <button type="button" className='project-bullet-btn' onClick={() => props.removeProjectBullet(props.index, index)}>- Remove Bullet</button>
+            <button
+              type="button"
+              className="project-bullet-btn red-background"
+              onClick={() => props.removeProjectBullet(props.index, index)}
+            >
+              - Remove Bullet
+            </button>
           </div>
-        )
+        );
       })}
-      <button type="button" className='project-bullet-btn' onClick={props.addProjectBullet}>+ Add Bullet</button>
-  </div>
-  )
+      <button
+        type="button"
+        className="project-bullet-btn green-background"
+        onClick={props.addProjectBullet}
+      >
+        + Add Bullet
+      </button>
+    </div>
+  );
 }
